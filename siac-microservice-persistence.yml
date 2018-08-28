@@ -7,7 +7,7 @@ spring:
     application:
         name: siac-microservice-persistence
     datasource:
-        url: jdbc:postgresql://localhost:5432/siacplus
+        url: jdbc:postgresql://localhost:5432/siacplus?currentSchema=siacplus
         username: siacplus
         password: siacplus
     jpa:
