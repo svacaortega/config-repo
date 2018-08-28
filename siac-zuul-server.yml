@@ -1,0 +1,22 @@
+#Puerto definido 
+server:
+    port: 7070
+    
+#Rutas configuradas
+zuul:
+    routes:
+        daoService:
+            path: /daoService/**
+            serviceId: siac-microservice-persistence
+            stripPrefix: false
+        daoServiceModule:
+            path: /daoServiceModule/**
+            serviceId: siac-microservice-persistence
+            stripPrefix: false
+
+# Discovery Server Access
+eureka:
+    client:
+        registerWithEureka: false
+        serviceUrl:
+        defaultZone: http://localhost:9080/eureka/
