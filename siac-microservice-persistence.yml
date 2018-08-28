@@ -24,6 +24,9 @@ spring:
 #Registro de eureka
 eureka:
     instance:
+        statusPageUrl: http://localhost:9080/info
+        healthCheckUrl: http://localhost:9080/health
+        homePageUrl: http://localhost:9080/
         leaseRenewalIntervalInSeconds: 5
         lease-expiration-duration-in-seconds: 5
     client:
