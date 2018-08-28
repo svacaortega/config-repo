@@ -7,9 +7,7 @@ server:
 eureka:
    server:
        enableSelfPreservation: true
-       defaultOpenForTrafficCount: 0
-       eviction-interval-timer-in-ms: 1000
-   client:  # Not a client, don't register with yourself
+   client:  # No se registra a si mismo.
        register-with-eureka: false
        fetch-registry: false
        service-url:
