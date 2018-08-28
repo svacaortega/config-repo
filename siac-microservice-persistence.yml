@@ -10,6 +10,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/siacplus?currentSchema=siacplus
         username: siacplus
         password: siacplus
+        driver-class-name: org.postgresql.Driver
     jpa:
         properties:
             hibernate:
