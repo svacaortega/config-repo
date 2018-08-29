@@ -1,0 +1,46 @@
+#Puerto a montar
+server:
+    port: 0
+
+#Conexion a BD y nombre de aplicacion
+spring:
+    application:
+        name: siac-microservice-persistence
+    datasource:
+        jdbc-url: jdbc:postgresql://localhost:5432/siacplus?currentSchema=siacplus
+        username: siacplus
+        password: siacplus
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQL9Dialect
+                ddl-auto: update
+                show_sql: true
+            jdbc:
+                lob:
+                    non_contextual_creation: true
+                temp:
+                    use_jdbc_metadata_defaults: false
+#Registro de eureka
+eureka:
+    instance:
+        instance-id: ${spring.application.name}:${random.int}
+        leaseRenewalIntervalInSeconds: 5
+        lease-expiration-duration-in-seconds: 5
+    client:
+        register-with-eureka: true
+        fetchRegistry: true
+        registryFetchIntervalSeconds: 5
+        serviceUrl:
+            defaultZone: http://localhost:9080/eureka
+
+#Log         
+logging:
+    level:
+        org.springframework.web: ERROR
+        com.eglobal.siac.microservice.persistence: DEBUG
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: /logs/microservice-persistence.log
